@@ -1,14 +1,39 @@
-<h1>Books</h1>
+<header><h1>Books</h1></header>
+<!-- indexページのレイアウト -->
 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <% @books.each do |book| %><!-- インスタンス変数books -->
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td>
+        <ul>
+          <li><%= link_to "Show", show_book_path(book.id) %></li>
+          <li><%= link_to "Edit", edit_book_path(book.id) %></li>
+          <li><%= link_to "Destroy", "/" %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<!-- 新規登録機能のレイアウト -->
 <div class = "box">
-  <h2>New book</h2>
+  <h2 class = "new_book">New book</h2>
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
-    <p>Title</p>
-    <%= f.text_field :title %><!--モデル名をもとにdbにアクセス -->
+    <div class = "field">
+      <p>Title</p>
+      <%= f.text_field :title %><!--モデル名をもとにdbにアクセス -->
+    </div>
+    <div class = "area">
+      <p>Body</p>
+      <%= f.text_area :body %>
+    </div>
 
-    <p>Body</p>
-    <%= f.text_area :body %>
-
-    <div><%= f.submit 'Create Book' %></div>
+    <div><%= f.submit 'Create Book' %></div><!-- ブロック要素のためのdiv -->
   <% end %>
 </div>

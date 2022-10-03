@@ -1,3 +1,64 @@
-// Place all the styles related to the books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+ul{
+  list-style: none;
+  display: flex;
+}
+
+li{
+  margin-right: 15px;
+}
+
+a{
+  color: black;
+}
+
+a:hover{
+  background-color:black;
+  color:white;
+}
+
+table{
+  width: 85%;
+  margin-left: 6%;
+  margin-top: 5px;
+}
+
+.field, .area{
+  margin-bottom: 10px;
+}
+
+
+.box{
+  margin: 5%;
+}
+
+.new_book{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.data{
+  margin: 5%;
+}
+
+.data-contents{
+  margin-left: 10%;
+  margin-bottom: 5%;
+  line-height: 3.5;
+}
+
+.back_btn{
+  font-color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
