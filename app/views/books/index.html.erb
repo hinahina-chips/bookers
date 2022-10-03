@@ -1,6 +1,5 @@
 <header><h1>Books</h1></header>
 <!-- indexページのレイアウト -->
-
 <table>
   <tr>
     <th>Title</th>
@@ -12,18 +11,29 @@
       <td><%= book.body %></td>
       <td>
         <ul>
-          <li><%= link_to "Show", show_book_path(book.id) %></li>
+          <li><%= link_to "Show", book_path(book.id) %></li>
           <li><%= link_to "Edit", edit_book_path(book.id) %></li>
-          <li><%= link_to "Destroy", "/" %></li>
+          <li><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?"%></li>
         </ul>
       </td>
     </tr>
   <% end %>
 </table>
 
+
 <!-- 新規登録機能のレイアウト -->
 <div class = "box">
   <h2 class = "new_book">New book</h2>
+
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のエラーが発生しました %>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
     <div class = "field">
       <p>Title</p>
