@@ -1,3 +1,4 @@
+
 <header><h1>Books</h1></header>
 <!-- indexページのレイアウト -->
 <table>
@@ -25,16 +26,17 @@
 <div class = "box">
   <h2 class = "new_book">New book</h2>
 
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>件のエラーが発生しました %>
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+
 
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>件のエラーが発生しました %>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <div class = "field">
       <p>Title</p>
       <%= f.text_field :title %><!--モデル名をもとにdbにアクセス -->

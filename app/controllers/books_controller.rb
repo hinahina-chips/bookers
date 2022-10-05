@@ -1,13 +1,14 @@
 class BooksController < ApplicationController
+
   def index
-    @book = Book.new#インスタンス生成
     @books = Book.all
+    @book = Book.new#インスタンス生成
   end
 
   def create
     book = Book.new(book_params)
     if book.save
-      redirect_to book_path(book.id)
+      redirect_to book_path(book.id), success: 'Book was successfully created.'
     else
       @book = Book.new#インスタンス生成
       @books = Book.all
@@ -26,7 +27,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     if book.update(book_params)#引数は入力後の内容
-      redirect_to book_path(book.id)
+      redirect_to book_path(book.id), success: 'Book was successfully updated.'
     else
       @book = Book.find(params[:id])
       render :edit
