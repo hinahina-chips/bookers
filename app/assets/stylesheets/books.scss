@@ -4,6 +4,14 @@ ul{
   display: flex;
 }
 
+.vali{
+  display: block;
+}
+
+.vali_message{
+  color: red;
+}
+
 li{
   margin-right: 15px;
 }
@@ -19,8 +27,12 @@ a:hover{
 
 table{
   width: 85%;
-  margin-left: 6%;
+  margin-left: 7%;
   margin-top: 5px;
+}
+
+.books{
+ margin-left: 4%;
 }
 
 .field, .area{
@@ -48,12 +60,35 @@ table{
 }
 
 .back_btn{
-  font-color: gray;
+  color: gray;
 }
 
-.fff{
-  color: green;
+.top{
+  line-height: 3.5;
+  text-align: center;
 }
+
+.update_btn{
+    margin-bottom: 10px;
+  }
+
+@media screen and (max-width: 768px) {
+  table{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .link{
+    display: block;
+  }
+
+  td{
+    background-color: pink;
+  }
+
+
+}
+
 
 
 

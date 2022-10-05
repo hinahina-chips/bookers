@@ -1,5 +1,5 @@
 
-<header><h1>Books</h1></header>
+<h1 class = "books">Books</h1>
 <!-- indexページのレイアウト -->
 <table>
   <tr>
@@ -11,7 +11,7 @@
       <td><%= book.title %></td>
       <td><%= book.body %></td>
       <td>
-        <ul>
+        <ul class = "link">
           <li><%= link_to "Show", book_path(book.id) %></li>
           <li><%= link_to "Edit", edit_book_path(book.id) %></li>
           <li><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?"%></li>
@@ -30,10 +30,10 @@
 
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
     <% if @book.errors.any? %>
-      <%= @book.errors.count %>件のエラーが発生しました %>
-      <ul>
+      <%= @book.errors.count %>errors happened!
+      <ul class = "vali">
         <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class = "vali_message"><%= message %></li>
         <% end %>
       </ul>
     <% end %>
